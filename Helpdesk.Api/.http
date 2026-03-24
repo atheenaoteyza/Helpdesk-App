@@ -1,0 +1,24 @@
+@base_url = http://localhost:5228
+
+### Get All Tickets
+GET {{base_url}}/api/tickets
+Accept: application/json
+
+###
+
+### Create a New Ticket
+POST {{base_url}}/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Database Connection Issue 3",
+  "description": "The API is struggling to connect to the SQLite file on startup.",
+  "status": "Open",
+  "priority": "High"
+}
+
+###
+
+### Get a Single Ticket (Update ID as needed)
+GET {{base_url}}/api/tickets/1
+Accept: application/json
