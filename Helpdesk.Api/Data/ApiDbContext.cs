@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Helpdesk.Api.Data
 {
-    
+
 
     public class ApiDbContext : DbContext
     {
@@ -13,4 +13,4 @@ namespace Helpdesk.Api.Data
 
         public DbSet<Ticket> Tickets { get; set; }
     }
-}   
+}

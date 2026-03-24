@@ -29,7 +29,16 @@ namespace Helpdesk.Api.Controllers
         {
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetTickets), new { id = ticket.Id }, ticket);
+            return CreatedAtAction(nameof(GetTicket), new { id = ticket.Id }, ticket);
+        }
+
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Ticket>> GetTicket(int id)
+        {
+            var ticket = await _context.Tickets.FindAsync(id);
+            if (ticket == null) return NotFound();
+            return ticket;
         }
     }
 }
