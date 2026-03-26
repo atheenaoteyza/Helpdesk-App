@@ -11,6 +11,6 @@ namespace Helpdesk.Api.Data
         {
         }
 
-        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Ticket> Tickets => Set<Ticket>();
     }
 }
