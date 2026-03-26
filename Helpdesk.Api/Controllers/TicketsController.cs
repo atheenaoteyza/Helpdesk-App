@@ -25,8 +25,14 @@ namespace Helpdesk.Api.Controllers
 
         // POST: api/Tickets (Create new)
         [HttpPost]
-        public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
+        public async Task<ActionResult<Ticket>> PostTicket(TicketDTO ticketDTO)
         {
+            var ticket = new Ticket
+            {
+                Title = ticketDTO.Title,
+                Description = ticketDTO.Description
+                // Status, Priority, CreatedAt will use default values
+            };
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetTicket), new { id = ticket.Id }, ticket);
